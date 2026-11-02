@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b19" />
+      <stop offset="50%" stop-color="#0b132b" />
+      <stop offset="100%" stop-color="#1c2541" />
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="glowGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="glowGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="pulseGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-width="0.75" stroke-opacity="0.08" />
+    </pattern>
+
+    <style>
+      .orb-1 {
+        animation: floatOrb1 12s ease-in-out infinite alternate;
+      }
+      .orb-2 {
+        animation: floatOrb2 15s ease-in-out infinite alternate;
+      }
+      .data-particle {
+        animation: flowParticle 6s linear infinite;
+      }
+      .node-pulse {
+        animation: pulseNode 3s ease-in-out infinite;
+      }
+      .pill-float {
+        animation: floatPill 5s ease-in-out infinite alternate;
+      }
+
+      @keyframes floatOrb1 {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(60px, 40px) scale(1.15); }
+      }
+      @keyframes floatOrb2 {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(-50px, -30px) scale(1.2); }
+      }
+      @keyframes flowParticle {
+        0% { stroke-dashoffset: 400; opacity: 0.2; }
+        50% { opacity: 0.8; }
+        100% { stroke-dashoffset: 0; opacity: 0.2; }
+      }
+      @keyframes pulseNode {
+        0%, 100% { transform: scale(1); opacity: 0.7; }
+        50% { transform: scale(1.25); opacity: 1; }
+      }
+      @keyframes floatPill {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-6px); }
+      }
+    </style>
+  </defs>
+
+  <!-- Deep Canvas Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)" />
+
+  <!-- Subtle Ambient Glowing Orbs in Background -->
+  <circle class="orb-1" cx="200" cy="120" r="180" fill="url(#glowGrad1)" />
+  <circle class="orb-2" cx="1020" cy="280" r="220" fill="url(#glowGrad2)" />
+
+  <!-- Grid Pattern Overlay -->
+  <rect width="100%" height="100%" fill="url(#gridPattern)" />
+
+  <!-- Dynamic Distributed Network / Query Mesh Lines in Background -->
+  <g stroke="#38bdf8" stroke-width="1.5" opacity="0.35" fill="none">
+    <path d="M 80,340 C 220,290 320,380 480,320 S 760,260 920,330 S 1080,270 1140,300" 
+          stroke-dasharray="10 14" class="data-particle" />
+    <path d="M 120,90 C 280,160 420,70 600,120 S 840,160 980,80 S 1100,140 1150,110" 
+          stroke="#c084fc" stroke-dasharray="8 12" class="data-particle" />
+  </g>
+
+  <!-- Decorative Background Flow Nodes -->
+  <g opacity="0.5">
+    <circle cx="160" cy="310" r="4" fill="#38bdf8" />
+    <circle cx="480" cy="320" r="5" fill="#818cf8" />
+    <circle cx="820" cy="295" r="4" fill="#c084fc" />
+    <circle cx="1080" cy="270" r="5" fill="#38bdf8" />
+    <circle cx="280" cy="140" r="4" fill="#38bdf8" />
+    <circle cx="720" cy="105" r="4" fill="#c084fc" />
+  </g>
+
+  <!-- FOREGROUND CONTENT: Header Title & Subtitle -->
+  <g transform="translate(600, 140)" text-anchor="middle">
+    <!-- Top Micro Tag / Pill -->
+    <g transform="translate(0, -65)">
+      <rect x="-170" y="-14" width="340" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" opacity="0.9" />
+      <text x="0" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+            font-size="12" font-weight="700" fill="#38bdf8" letter-spacing="2">
+        ⚡ CURATED ARCHITECTURE &amp; BENCHMARKS
+      </text>
+    </g>
+
+    <!-- Main Title with Gradient Fill -->
+    <text x="0" y="15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+          font-size="52" font-weight="900" fill="url(#primaryGrad)" letter-spacing="-0.5" filter="url(#glowFilter)">
+      Awesome Distributed SQL
+    </text>
+    <text x="0" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+          font-size="34" font-weight="800" fill="#f8fafc" letter-spacing="1">
+      QUERY ENGINES &amp; LAKEHOUSE PLATFORMS
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+          font-size="16" font-weight="500" fill="#94a3b8" letter-spacing="0.5">
+      The authoritative guide to Federated SQL, Vectorized OLAP, MPP Execution &amp; Lakehouse Analytics
+    </text>
+  </g>
+
+  <!-- FOREGROUND PILLS: Feature Cards along Bottom -->
+  <g transform="translate(600, 320)" text-anchor="middle" class="pill-float">
+    <!-- Pill 1: Federated Query -->
+    <g transform="translate(-390, 0)">
+      <rect x="-110" y="-22" width="220" height="44" rx="22" fill="#0f172a" stroke="#0ea5e9" stroke-width="1.5" />
+      <text x="0" y="6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#38bdf8">
+        🌐 Federated SQL
+      </text>
+    </g>
+
+    <!-- Pill 2: Open Lakehouse -->
+    <g transform="translate(-130, 0)">
+      <rect x="-110" y="-22" width="220" height="44" rx="22" fill="#0f172a" stroke="#6366f1" stroke-width="1.5" />
+      <text x="0" y="6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#a5b4fc">
+        🧊 Iceberg &amp; Delta Lake
+      </text>
+    </g>
+
+    <!-- Pill 3: Vectorized OLAP -->
+    <g transform="translate(130, 0)">
+      <rect x="-110" y="-22" width="220" height="44" rx="22" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5" />
+      <text x="0" y="6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#c4b5fd">
+        🚀 Vectorized OLAP
+      </text>
+    </g>
+
+    <!-- Pill 4: MPP Execution -->
+    <g transform="translate(390, 0)">
+      <rect x="-110" y="-22" width="220" height="44" rx="22" fill="#0f172a" stroke="#ec4899" stroke-width="1.5" />
+      <text x="0" y="6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#f472b6">
+        ⚡ Massive Parallelism
+      </text>
+    </g>
+  </g>
+</svg>
